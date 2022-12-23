@@ -1,18 +1,28 @@
 #include <iostream>
+#include <bitset>
 using namespace std;
 
-union
+int lowbit(int x)
 {
-    int nX;
-    char cY[10];
-} u;
+    return x & -x;
+}
+
+void swap(int a, int b)
+{
+    int t = a;
+    a = b;
+    b = t;
+}
+
+int m = 10, n = 20;
 
 int main()
 {
-    u.nX = 45678;
-    gets(u.cY);
-
-    printf("%d,", u.nX);
-    puts(u.cY);
+    int a = 0b1010;
+    cout << bitset<16>(~a) << endl;
+    cout << bitset<16>(lowbit(a)) << endl;
+    cout << m << " " << n << endl;
+    swap(m, n);
+    cout << m << " " << n;
     return 0;
 }
