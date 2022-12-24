@@ -1,6 +1,14 @@
 # [课程链接](https://www.acwing.com/video/10/)
 
-## 快速排序算法模板 —— 模板题 AcWing 785. 快速排序
+## sync_with_stdio
++ 这个函数是一个“是否兼容stdio”的开关，C++为了兼容C，保证程序在使用了std::printf和std::cout的时候不发生混乱，将输出流绑到了一起。
+
+## tie
++ tie是将两个stream绑定的函数，空参数的话返回当前的输出流指针。
++ 在默认的情况下cin绑定的是cout，每次执行 << 操作符的时候都要调用flush，这样会增加IO负担。可以通过tie(0)（0表示NULL）来解除cin与cout的绑定，进一步加快执行效率。
++ cin，cout之所以效率低，是因为先把要输出的东西存入缓冲区，再输出，导致效率降低，而这段代码可以来打消iostream的输入 输出缓存，可以节省许多时间，使效率与scanf与printf相差无几.
+
+## 快速排序算法模板
 ```c++
 void quick_sort(int q[], int l, int r)
 {
@@ -16,7 +24,7 @@ void quick_sort(int q[], int l, int r)
     quick_sort(q, l, j), quick_sort(q, j + 1, r);
 }
 ```
-## 归并排序算法模板 —— 模板题 AcWing 787. 归并排序
+## 归并排序算法模板
 ```c++
 void merge_sort(int q[], int l, int r)
 {
@@ -37,7 +45,7 @@ void merge_sort(int q[], int l, int r)
     for (i = l, j = 0; i <= r; i ++, j ++ ) q[i] = tmp[j];
 }
 ```
-## 整数二分算法模板 —— 模板题 AcWing 789. 数的范围
+## 整数二分算法模板
 ```c++
 bool check(int x) {/* ... */} // 检查x是否满足某种性质
 
@@ -64,7 +72,7 @@ int bsearch_2(int l, int r)
     return l;
 }
 ```
-##浮点数二分算法模板 —— 模板题 AcWing 790. 数的三次方根
+## 浮点数二分算法模板
 ```c++
 bool check(double x) {/* ... */} // 检查x是否满足某种性质
 
@@ -80,7 +88,7 @@ double bsearch_3(double l, double r)
     return l;
 }
 ```
-## 高精度加法 —— 模板题 AcWing 791. 高精度加法
+## 高精度加法
 ```c++
 // C = A + B, A >= 0, B >= 0
 vector<int> add(vector<int> &A, vector<int> &B)
@@ -101,7 +109,7 @@ vector<int> add(vector<int> &A, vector<int> &B)
     return C;
 }
 ```
-## 高精度减法 —— 模板题 AcWing 792. 高精度减法
+## 高精度减法
 ```c++
 // C = A - B, 满足A >= B, A >= 0, B >= 0
 vector<int> sub(vector<int> &A, vector<int> &B)
@@ -120,7 +128,7 @@ vector<int> sub(vector<int> &A, vector<int> &B)
     return C;
 }
 ```
-## 高精度乘低精度 —— 模板题 AcWing 793. 高精度乘法
+## 高精度乘低精度
 ```c++
 // C = A * b, A >= 0, b >= 0
 vector<int> mul(vector<int> &A, int b)
@@ -140,7 +148,7 @@ vector<int> mul(vector<int> &A, int b)
     return C;
 }
 ```
-## 高精度除以低精度 —— 模板题 AcWing 794. 高精度除法
+## 高精度除以低精度
 ```c++
 // A / b = C ... r, A >= 0, b > 0
 vector<int> div(vector<int> &A, int b, int &r)
@@ -158,32 +166,32 @@ vector<int> div(vector<int> &A, int b, int &r)
     return C;
 }
 ```
-## 一维前缀和 —— 模板题 AcWing 795. 前缀和
+## 一维前缀和
 ```c++
 S[i] = a[1] + a[2] + ... a[i]
 a[l] + ... + a[r] = S[r] - S[l - 1]
 ```
-## 二维前缀和 —— 模板题 AcWing 796. 子矩阵的和
+## 二维前缀和
 ```c++
 S[i, j] = 第i行j列格子左上部分所有元素的和
 以(x1, y1)为左上角，(x2, y2)为右下角的子矩阵的和为：
 S[x2, y2] - S[x1 - 1, y2] - S[x2, y1 - 1] + S[x1 - 1, y1 - 1]
 ```
-## 一维差分 —— 模板题 AcWing 797. 差分
+## 一维差分
 ```c++
 给区间[l, r]中的每个数加上c：B[l] += c, B[r + 1] -= c
 ```
-## 二维差分 —— 模板题 AcWing 798. 差分矩阵
+## 二维差分
 ```c++
 给以(x1, y1)为左上角，(x2, y2)为右下角的子矩阵中的所有元素加上c：
 S[x1, y1] += c, S[x2 + 1, y1] -= c, S[x1, y2 + 1] -= c, S[x2 + 1, y2 + 1] += c
 ```
-## 位运算 —— 模板题 AcWing 801. 二进制中1的个数
+## 位运算
 ```c++
 求n的第k位数字: n >> k & 1
 返回n的最后一位1：lowbit(n) = n & -n
 ```
-## 双指针算法 —— 模板题 AcWIng 799. 最长连续不重复子序列, AcWing 800. 数组元素的目标和
+## 双指针算法
 ```c++
 for (int i = 0, j = 0; i < n; i ++ )
 {
@@ -195,7 +203,7 @@ for (int i = 0, j = 0; i < n; i ++ )
     (1) 对于一个序列，用两个指针维护一段区间
     (2) 对于两个序列，维护某种次序，比如归并排序中合并两个有序序列的操作
 ```
-## 离散化 —— 模板题 AcWing 802. 区间和
+## 离散化
 ```c++
 vector<int> alls; // 存储所有待离散化的值
 sort(alls.begin(), alls.end()); // 将所有值排序
@@ -214,7 +222,7 @@ int find(int x) // 找到第一个大于等于x的位置
     return r + 1; // 映射到1, 2, ...n
 }
 ```
-## 区间合并 —— 模板题 AcWing 803. 区间合并
+## 区间合并
 ```c++
 // 将所有存在交集的区间合并
 void merge(vector<PII> &segs)

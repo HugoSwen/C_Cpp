@@ -8,7 +8,6 @@ int a[N], s[N];
 
 int main()
 {
-    // ios::sync_with_stdio(false); // 取消同步，提高输入输出速度，但仍比scanf printf慢
     scanf("%d%d", &n, &m);
     for (int i = 1; i <= n; i++)
         scanf("%d", &a[i]);

@@ -26,12 +26,6 @@ void quick_sort(int q[], int l, int r)
             swap(q[i], q[j]);
     }
     quick_sort(q, l, j), quick_sort(q, j + 1, r);
-    // 快速选择
-    //  int sl = j - l + 1;
-    //  if (k <= sl)
-    //      return quick_sort(q, l, j, k);
-    //  else
-    //      return quick_sort(q, j + 1, r, k - sl);
 }
 int main()
 {
