@@ -6,9 +6,10 @@ const int N = 1010;
 int n, m, q;
 int a[N][N], b[N][N];
 
-void modify(int x1, int y1, int x2, int y2, int c)
+void modify(int x1, int y1, int x2, int y2, int c) // 修改前缀和数组，使其(x1,y1)-(x2,y2)区域内每个数+c
 {
     b[x1][y1] += c;
+    // 三部分补丁
     b[x1][y2 + 1] -= c;
     b[x2 + 1][y1] -= c;
     b[x2 + 1][y2 + 1] += c;

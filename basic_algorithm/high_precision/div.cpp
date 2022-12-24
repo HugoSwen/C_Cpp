@@ -10,13 +10,13 @@ vector<int> div(vector<int> A, int b, int &r)
     r = 0;
     for (int i = A.size() - 1; i >= 0; i--)
     {
-        r = r * 10 + A[i];
-        C.push_back(r / b);
-        r %= b;
+        r = r * 10 + A[i];  // 余数×权重10+该位数字
+        C.push_back(r / b); // 存整除数
+        r %= b;             // 改余数
     }
-    reverse(C.begin(), C.end());
+    reverse(C.begin(), C.end()); // 因为是按顺序存的，为统一格式翻转数组
 
-    while (C.size() > 1 && C.back() == 0)
+    while (C.size() > 1 && C.back() == 0) // 去前导零
         C.pop_back();
 
     return C;

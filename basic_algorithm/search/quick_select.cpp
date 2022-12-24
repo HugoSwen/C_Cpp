@@ -27,9 +27,9 @@ int quick_sort(int q[], int l, int r, int k)
     }
     // 快速选择
     int sl = j - l + 1;
-    if (k <= sl)
+    if (k <= sl) // k<=sl说明第k个数在左半边
         return quick_sort(q, l, j, k);
-    else
+    else // k > sl说明第k个数在右半边，且为右半边第k-sl个数
         return quick_sort(q, j + 1, r, k - sl);
 }
 int main()

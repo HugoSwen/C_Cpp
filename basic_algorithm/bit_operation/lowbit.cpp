@@ -3,7 +3,7 @@ using namespace std;
 
 int lowbit(int x)
 {
-    return x & -x;
+    return x & -x; // 得到x二进制数最后一位1表示的数
 }
 
 int n;

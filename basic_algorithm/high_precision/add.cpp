@@ -15,7 +15,9 @@ vector<int> add(vector<int> &A, vector<int> &B)
         if (i < B.size())
             carry += B[i];
         C.push_back(carry % 10);
-        carry /= 10;
+
+        carry /= 10; // 满10进1，不满则为0
+        // 相同效果
         // if (carry >= 10)
         //     carry = 1;
         // else

@@ -11,9 +11,9 @@ vector<int> mul(vector<int> A, int b)
     for (int i = 0; i < A.size() || t; i++)
     {
         if (i < A.size())
-            t += A[i] * b;
-        C.push_back(t % 10);
-        t /= 10;
+            t += A[i] * b;   // 进位加上每一位与b相乘的结果
+        C.push_back(t % 10); // 存个位
+        t /= 10;             // 删个位
     }
 
     // 与 ||t 起到相同效果
@@ -23,7 +23,7 @@ vector<int> mul(vector<int> A, int b)
     //     t /= 10;
     // }
 
-    while (C.size() > 1 && C.back() == 0)
+    while (C.size() > 1 && C.back() == 0) // 去前导零
         C.pop_back();
 
     return C;

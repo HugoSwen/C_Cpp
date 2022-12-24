@@ -16,7 +16,7 @@ int main()
     {
         int x;
         scanf("%d", &x);
-        // 找最小
+        // 找目标中最小的
         int l = 0, r = n - 1;
         while (l < r)
         {
@@ -31,7 +31,7 @@ int main()
             cout << "-1 -1" << endl;
         else
         {
-            // 找最大
+            // 找目标中最大的
             cout << l << ' ';
             int l = 0, r = n - 1;
             while (l < r)
