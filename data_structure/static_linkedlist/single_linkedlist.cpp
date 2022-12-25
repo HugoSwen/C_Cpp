@@ -17,7 +17,7 @@ void init()
 }
 
 // 将x插到头节点
-void add_to_head(int x)
+void insert_to_head(int x)
 {
     e[idx] = x;
     ne[idx] = head;
@@ -26,13 +26,13 @@ void add_to_head(int x)
 }
 
 // 将下标是k的点后边的点删掉
-void remove(int k)
+void del(int k)
 {
     ne[k] = ne[ne[k]];
 }
 
 // 将x插到下标是k的点的后面
-void add(int k, int x)
+void insert(int k, int x)
 {
     e[idx] = x;
     ne[idx] = ne[k];
@@ -57,7 +57,7 @@ int main()
         {
             scanf("%d", &x);
 
-            add_to_head(x);
+            insert_to_head(x);
         }
         else if (ope == 'D')
         {
@@ -66,13 +66,13 @@ int main()
             if (!k)
                 head = ne[head];
             else
-                remove(k - 1);
+                del(k - 1);
         }
         else
         {
             scanf("%d%d", &k, &x);
 
-            add(k - 1, x);
+            insert(k - 1, x);
         }
     }
 

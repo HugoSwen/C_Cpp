@@ -1,28 +1,18 @@
-#include <iostream>
-#include <bitset>
-using namespace std;
-
-int lowbit(int x)
-{
-    return x & -x;
-}
-
-void swap(int a, int b)
-{
-    int t = a;
-    a = b;
-    b = t;
-}
-
-int m = 10, n = 20;
+#include <stdio.h>
 
 int main()
 {
-    int a = 0b1010;
-    cout << bitset<16>(~a) << endl;
-    cout << bitset<16>(lowbit(a)) << endl;
-    cout << m << " " << n << endl;
-    swap(m, n);
-    cout << m << " " << n;
+    int i = 100;
+    
+    do
+    {
+        int a = i / 100;
+        int b = i / 10 % 10;
+        int c = i % 10;
+        if (a * a * a + b * b * b + c * c * c == i)
+            printf("%d\n", i);
+        i++;
+    } while (i < 1000);
+
     return 0;
 }
