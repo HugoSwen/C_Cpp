@@ -2,17 +2,17 @@
 
 int main()
 {
-    int i = 100;
-    
-    do
+    // for (int i = 0; i <= 10; i++)
+    // {
+    //     if (i == 7)
+    //         continue;
+    //     printf("%d\n", i);
+    // }
+    int i = 0;
+    while(i++ < 10)
     {
-        int a = i / 100;
-        int b = i / 10 % 10;
-        int c = i % 10;
-        if (a * a * a + b * b * b + c * c * c == i)
-            printf("%d\n", i);
-        i++;
-    } while (i < 1000);
-
+        if(i == 7) continue;
+        printf("%d\n", i);
+    }
     return 0;
 }
