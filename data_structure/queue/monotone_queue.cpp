@@ -19,8 +19,7 @@ int main()
 
         if (qh <= qt && i - k + 1 > que[qh])
             qh++;
-        while (qh <= qt && a[que[qt]] >= a[i])
-            qt--;
+        while (qh <= qt && a[que[qt]] >= a[i])   qt--;
         que[++qt] = i;
         if (i >= k - 1)
             printf("%d ", a[que[qh]]);

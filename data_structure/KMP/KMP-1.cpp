@@ -9,11 +9,7 @@ int ne[N]; // 存储当前位置前面的最大公共前后缀长度 + 1 (规定
 
 int main()
 {
-    ios::sync_with_stdio(false);
-    cin.tie(nullptr);
-    cout.tie(nullptr);
-
-    cin >> n >> p + 1 >> m >> s + 1;
+    scanf("%d%s%d%s", &n, p + 1, &m, s + 1);
 
     for (int i = 2, j = 0; i <= n + 1; i++)
     {
@@ -45,7 +41,7 @@ int main()
         j++;
         if (j == n + 1)
         {
-            cout << i - n << " ";
+            printf("%d ", i - n);
             j = ne[j];
         }
     }
