@@ -1,18 +1,11 @@
-#include <stdio.h>
+#include <iostream>
+using namespace std;
 
 int main()
 {
-    // for (int i = 0; i <= 10; i++)
-    // {
-    //     if (i == 7)
-    //         continue;
-    //     printf("%d\n", i);
-    // }
-    int i = 0;
-    while(i++ < 10)
-    {
-        if(i == 7) continue;
-        printf("%d\n", i);
-    }
+    int res = 98 / 2 * -1 + 99;
+
+    cout << res;
+
     return 0;
 }
