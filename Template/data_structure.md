@@ -1,6 +1,7 @@
 # [课程链接](https://www.acwing.com/video/15/)
 
 ## 单链表
+
 ```c++
 // head存储链表头，e[]存储节点的值，ne[]存储节点的next指针，idx表示当前用到了哪个节点
 int head, e[N], ne[N], idx;
@@ -24,7 +25,9 @@ void remove()
     head = ne[head];
 }
 ```
+
 ## 双链表
+
 ```c++
 // e[]表示节点的值，l[]表示节点的左指针，r[]表示节点的右指针，idx表示当前用到了哪个节点
 int e[N], l[N], r[N], idx;
@@ -52,7 +55,9 @@ void remove(int a)
     r[l[a]] = r[a];
 }
 ```
+
 ## 栈
+
 ```c++
 // tt表示栈顶
 int stk[N], tt = 0;
@@ -72,8 +77,11 @@ if (tt > 0)
 
 }
 ```
+
 ## 队列
+
 ### 1. 普通队列：
+
 ```c++
 // hh 表示队头，tt表示队尾
 int q[N], hh = 0, tt = -1;
@@ -93,7 +101,9 @@ if (hh <= tt)
 
 }
 ```
+
 ### 2. 循环队列
+
 ```c++
 // hh 表示队头，tt表示队尾的后一个位置
 int q[N], hh = 0, tt = 0;
@@ -115,7 +125,9 @@ if (hh != tt)
 
 }
 ```
+
 ## 单调栈
+
 ```c++
 常见模型：找出每个数左边离它最近的比它大/小的数
 int tt = 0;
@@ -125,7 +137,9 @@ for (int i = 1; i <= n; i ++ )
     stk[ ++ tt] = i;
 }
 ```
+
 ## 单调队列
+
 ```c++
 常见模型：找出滑动窗口中的最大值/最小值
 int hh = 0, tt = -1;
@@ -136,7 +150,9 @@ for (int i = 0; i < n; i ++ )
     q[ ++ tt] = i;
 }
 ```
+
 ## KMP
+
 ```c++
 // s[]是长文本，p[]是模式串，n是s的长度，m是p的长度
 求模式串的Next数组：
@@ -159,7 +175,9 @@ for (int i = 1, j = 0; i <= n; i ++ )
     }
 }
 ```
-## Trie树
+
+## Trie 树
+
 ```c++
 int son[N][26], cnt[N], idx;
 // 0号点既是根节点，又是空节点
@@ -192,8 +210,11 @@ int query(char *str)
     return cnt[p];
 }
 ```
+
 ## 并查集
+
 ### (1)朴素并查集：
+
 ```c++
     int p[N]; //存储每个点的祖宗节点
 
@@ -211,7 +232,8 @@ int query(char *str)
     p[find(a)] = find(b);
 ```
 
-### (2)维护size的并查集：
+### (2)维护 size 的并查集：
+
 ```c++
     int p[N], size[N];
     //p[]存储每个点的祖宗节点, size[]只有祖宗节点的有意义，表示祖宗节点所在集合中的点的数量
@@ -236,6 +258,7 @@ int query(char *str)
 ```
 
 ### (3)维护到祖宗节点距离的并查集：
+
 ```c++
     int p[N], d[N];
     //p[]存储每个点的祖宗节点, d[x]存储x到p[x]的距离
@@ -263,7 +286,9 @@ int query(char *str)
     p[find(a)] = find(b);
     d[find(a)] = distance; // 根据具体问题，初始化find(a)的偏移量
 ```
+
 ## 堆
+
 ```c++
 // h[N]存储堆中的值, h[1]是堆顶，x的左儿子是2x, 右儿子是2x + 1
 // ph[k]存储第k个插入的点在堆中的位置
@@ -302,8 +327,11 @@ void up(int u)
 // O(n)建堆
 for (int i = n / 2; i; i -- ) down(i);
 ```
+
 ## 一般哈希
+
 ### (1) 拉链法
+
 ```c++
     int h[N], e[N], ne[N], idx;
 
@@ -327,7 +355,9 @@ for (int i = n / 2; i; i -- ) down(i);
         return false;
     }
 ```
+
 ### (2) 开放寻址法
+
 ```c++
     int h[N];
 
@@ -343,7 +373,9 @@ for (int i = n / 2; i; i -- ) down(i);
         return t;
     }
 ```
+
 ## 字符串哈希
+
 ```c++
 核心思想：将字符串看成P进制数，P的经验值是131或13331，取这两个值的冲突概率低
 小技巧：取模的数用2^64，这样直接用unsigned long long存储，溢出的结果就是取模的结果
@@ -365,7 +397,9 @@ ULL get(int l, int r)
     return h[r] - h[l - 1] * p[r - l + 1];
 }
 ```
-## C++ STL简介
+
+## C++ STL 简介
+
 ```c++
 vector, 变长数组，倍增的思想
     size()  返回元素个数
