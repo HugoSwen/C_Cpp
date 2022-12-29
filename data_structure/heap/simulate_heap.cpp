@@ -6,7 +6,11 @@ const int N = 1e5 + 10;
 
 int n;
 int h[N], ph[N], hp[N], tail, si;
+// h[N]存储堆中的值, h[1]是堆顶，x的左儿子是2x, 右儿子是2x + 1
+// ph[k]存储第k个插入的点在堆中的位置
+// hp[k]存储堆中下标是k的点是第几个插入的
 
+// 交换两个点，及其映射关系
 void heap_swap(int a, int b)
 {
     swap(ph[hp[a]], ph[hp[b]]);

@@ -1,25 +1,27 @@
-// 拉链法
+/*
+ * solution:拉链法
+ */
 #include <iostream>
+#include <cstring>
 using namespace std;
 
-const int N = 1e5 + 3;
+const int N = 1e5 + 3; // 取大于1e5的第一个质数，取质数冲突的概率最小
 
-int n;
-int h[N], e[N], ne[N], idx = 1;
+int h[N], e[N], ne[N], idx; // 邻接表
 
 void insert(int x)
 {
-    int k = (x % N + N) % N;
+    int k = (x % N + N) % N; // c++中如果是负数,那他取模也是负的,所以 +N再%N 就一定是一个正数
     e[idx] = x;
     ne[idx] = h[k];
     h[k] = idx;
     idx++;
 }
 
-bool query(int x)
+bool find(int x)
 {
     int k = (x % N + N) % N;
-    for (int i = h[k]; i; i = ne[i])
+    for (int i = h[k]; i != -1; i = ne[i])
         if (e[i] == x)
             return true;
 
@@ -28,7 +30,10 @@ bool query(int x)
 
 int main()
 {
+    int n;
     cin >> n;
+
+    memset(h, -1, sizeof h); // 清空槽, 空指针一般用-1表示
 
     while (n--)
     {
@@ -38,10 +43,13 @@ int main()
 
         if (op[0] == 'I')
             insert(x);
-        else if (query(x))
-            puts("Yes");
         else
-            puts("No");
+        {
+            if (find(x))
+                puts("Yes");
+            else
+                puts("No");
+        }
     }
 
     return 0;

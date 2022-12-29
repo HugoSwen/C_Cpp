@@ -12,7 +12,7 @@ int head, e[N], ne[N], idx;
 // 初始化
 void init()
 {
-    head = -1;
+    head = -1; // -1表示空节点
     idx = 0;
 }
 

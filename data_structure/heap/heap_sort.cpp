@@ -29,8 +29,9 @@ int main()
     for (int i = 1; i <= n; i++)
         scanf("%d", &h[i]);
 
+    // O(n)建堆,可用数学归纳法证明n/2往后都没有子节点,即是完整的堆
     for (int i = n / 2; i; i--)
-        down(i); // 时间复杂度O(n),可用数学归纳法证明n/2往后都没有子节点,即是完整的堆
+        down(i);
 
     while (m--)
     {
