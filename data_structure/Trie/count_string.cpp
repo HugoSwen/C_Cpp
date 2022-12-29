@@ -12,30 +12,30 @@ int son[N][26], cnt[N], idx;
 
 void insert(char str[])
 {
-    int sn = 0; // sn表示节点序号
+    int p = 0; // p表示节点序号
     for (int i = 0; str[i]; i++)
     {
         int c = str[i] - 'a';
-        if (!son[sn][c])
-            son[sn][c] = ++idx;
-        sn = son[sn][c];
+        if (!son[p][c])
+            son[p][c] = ++idx;
+        p = son[p][c];
     }
 
-    cnt[sn]++;
+    cnt[p]++;
 }
 
 int query(char str[])
 {
-    int sn = 0;
+    int p = 0;
     for (int i = 0; str[i]; i++)
     {
         int c = str[i] - 'a';
-        if (!son[sn][c])
+        if (!son[p][c])
             return 0;
-        sn = son[sn][c];
+        p = son[p][c];
     }
 
-    return cnt[sn];
+    return cnt[p];
 }
 
 int main()
