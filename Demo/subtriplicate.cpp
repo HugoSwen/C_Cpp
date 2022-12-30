@@ -1,21 +1,19 @@
-#include <bits/stdc++.h>
-#define ll long
+#include <iostream>
 using namespace std;
-
-ll b[100000];
 
 int main()
 {
-    int T;
-    cin >> T;
-    for (int i = 1; i <= T; i++)
-    {
+    char a[10];
+    char b[6];
+    char c[3];
+
+    for (int i = 0; i < 6; i++)
+        scanf("%c", &a[i]);
+
+    for (int i = 0; i < 6; i++)
         cin >> b[i];
-    }
-    for (int i = 1; i <= T; i++)
-    {
-        ll a = round(pow(b[i], 1.0 / 3));
-        cout << a << endl;
-    }
+
+    printf("%p\t%p\t%p", a, b, c);
+
     return 0;
 }
