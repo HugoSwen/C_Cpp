@@ -1,4 +1,4 @@
-# [课程链接](https://www.acwing.com/video/10/)
+# [课程链接](https://www.acwing.com/activity/content/introduction/11/)
 
 ## sync_with_stdio
 
@@ -10,7 +10,7 @@
 - 在默认的情况下 cin 绑定的是 cout，每次执行 << 操作符的时候都要调用 flush，这样会增加 IO 负担。可以通过 tie(0)（0 表示 NULL）来解除 cin 与 cout 的绑定，进一步加快执行效率。
 - cin，cout 之所以效率低，是因为先把要输出的东西存入缓冲区，再输出，导致效率降低，而这段代码可以来打消 iostream 的输入 输出缓存，可以节省许多时间，使效率与 scanf 与 printf 相差无几.
 
-## 快速排序算法模板
+## 快速排序算法
 
 ```c++
 void quick_sort(int q[], int l, int r)
@@ -28,7 +28,7 @@ void quick_sort(int q[], int l, int r)
 }
 ```
 
-## 归并排序算法模板
+## 归并排序算法
 
 ```c++
 void merge_sort(int q[], int l, int r)
@@ -51,7 +51,7 @@ void merge_sort(int q[], int l, int r)
 }
 ```
 
-## 整数二分算法模板
+## 整数二分算法
 
 ```c++
 bool check(int x) {/* ... */} // 检查x是否满足某种性质
@@ -80,7 +80,7 @@ int bsearch_2(int l, int r)
 }
 ```
 
-## 浮点数二分算法模板
+## 浮点数二分算法
 
 ```c++
 bool check(double x) {/* ... */} // 检查x是否满足某种性质

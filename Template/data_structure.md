@@ -1,4 +1,4 @@
-# [课程链接](https://www.acwing.com/video/15/)
+# [课程链接](https://www.acwing.com/activity/content/introduction/11/)
 
 ## 单链表
 
