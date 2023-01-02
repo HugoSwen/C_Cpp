@@ -3,17 +3,9 @@ using namespace std;
 
 int main()
 {
-    char a[10];
-    char b[6];
-    char c[3];
+    string a = "12345678x";
 
-    for (int i = 0; i < 6; i++)
-        scanf("%c", &a[i]);
-
-    for (int i = 0; i < 6; i++)
-        cin >> b[i];
-
-    printf("%p\t%p\t%p", a, b, c);
+    cout << a.find('x');
 
     return 0;
 }
