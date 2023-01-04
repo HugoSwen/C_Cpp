@@ -135,7 +135,7 @@ int dijkstra()
 
 ## 堆优化版 dijkstra
 
-> $时间复杂度 O(mlogn), n 表示点数，m 表示边数$
+> $时间复杂度 O(m\log{n}), n 表示点数，m 表示边数$
 
 ```c++
 typedef pair<int, int> PII;
@@ -373,7 +373,7 @@ int prim()
 
 ## Kruskal 算法
 
-> $时间复杂度是 O(mlogm), n 表示点数，m 表示边数$
+> $时间复杂度是 O(m\log{m}), n 表示点数，m 表示边数$
 
 ```c++
 int n, m;       // n是点数，m是边数
