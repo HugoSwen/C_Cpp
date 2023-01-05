@@ -21,18 +21,18 @@ p是质数.
 然后每一个数都只有一个最小质因子,因此每个数都只会被筛一次,因此线性筛法是线性的.
 (5).枚举到i的最小质因子的时候就会停下来,即”if(i%primes[j]==0) break;”.
 (6).因为从小到大枚举的所有质数,所以当”i%primes[j]!=0”时,primes[j]一定小于i的最小质因子,
-primes[j]一定是primes[j]i的最小质因子.
+primes[j]一定是primes[j]*i的最小质因子.
 (7).因为是从小到大枚举的所有质数,所以当”i%primes[j]==0”时,primes[j]一定是i的最小质因子,
-而primes[j]又是primes[j]的最小质因子,因此primes[j]是iprimes[j]的最小质因子.
+而primes[j]又是primes[j]的最小质因子,因此primes[j]是i*primes[j]的最小质因子.
 (8).关于for循环的解释:
 注:首先要把握住一个重点:我们枚举的时候是从小到大枚举的所有质数
 1.当i%primes[j]==0时,因为是从小到大枚举的所有质数,所以primes[j]就是i的最小质因子,而primes[j]又是其本身
-primes[j]的最小质因子,因此当i%primes[j]==0时,primes[j]是primes[j]i的最小质因子.
+primes[j]的最小质因子,因此当i%primes[j]==0时,primes[j]是primes[j]*i的最小质因子.
 2.当i%primes[j]!=0时,因为是从小到大枚举的所有质数,且此时并没有出现过有质数满足i%primes[j]==0,
 因此此时的primes[j]一定小于i的最小质因子,而primes[j]又是其本身primes[j]的最小质因子,
-所以当i%primes[j]!=0时,primes[j]也是primes[j]i的最小质因子.
-3.综合1,2得知,在内层for循环里面无论何时,primes[j]都是primes[j]i的最小质因子,因此”st[primes[j]i]=true”
-语句就是用primes[j]i这个数的最小质因子来筛掉这个数.
+所以当i%primes[j]!=0时,primes[j]也是primes[j]*i的最小质因子.
+3.综合1,2得知,在内层for循环里面无论何时,primes[j]都是primes[j]*i的最小质因子,因此”st[primes[j]*i]=true”
+语句就是用primes[j]*i这个数的最小质因子来筛掉这个数.
 */
 #include <iostream>
 using namespace std;

@@ -3,7 +3,7 @@
 #include <algorithm>
 using namespace std;
 
-int check(string s, int l, int r)
+int expandcentre(string s, int l, int r)
 {
     while (l >= 0 && r < s.size() && s[l] == s[r])
     {
@@ -19,8 +19,8 @@ string longestPalindrome(string s)
     int len1, len2, res = 0;
     for (int i = 0; i < s.size() - 1; i++)
     {
-        int len1 = check(s, i, i);
-        int len2 = check(s, i, i + 1);
+        int len1 = expandcentre(s, i, i);
+        int len2 = expandcentre(s, i, i + 1);
         int t = max(len1, len2);
         if (res < t)
         {
