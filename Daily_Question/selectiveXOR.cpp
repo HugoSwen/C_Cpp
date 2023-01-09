@@ -1,3 +1,6 @@
+/*
+ * 思维较难
+ */
 #include <iostream>
 using namespace std;
 
