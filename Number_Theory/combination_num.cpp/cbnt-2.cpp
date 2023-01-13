@@ -1,3 +1,6 @@
+/*
+ * 通项公式法O(n)
+ */
 #include <iostream>
 using namespace std;
 
