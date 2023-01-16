@@ -12,17 +12,16 @@ int main()
 {
     cin >> n >> m;
 
-    sum = (LL)n * n;
     while (m--)
     {
         int x, y;
         cin >> x >> y;
         if (!rst[x])
-            sum = sum - n + cs, rs++, rst[x] = true;
+            rs++, rst[x] = true;
         if (!cst[y])
-            sum = sum - n + rs, cs++, cst[y] = true;
+            cs++, cst[y] = true;
 
-        printf("%lld ", sum);
+        printf("%lld ", (LL)(n - rs) * (n - cs));
     }
 
     return 0;
