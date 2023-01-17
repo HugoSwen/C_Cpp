@@ -1,3 +1,6 @@
+/*
+中心扩散法（对于特殊数据需要优化）
+*/
 #include <iostream>
 #include <string>
 #include <algorithm>

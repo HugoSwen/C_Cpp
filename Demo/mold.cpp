@@ -1,8 +1,12 @@
 #include <iostream>
+#include <vector>
+#include <string>
 using namespace std;
 
 int main()
 {
-    cout << (3^2);
+    char a = 'a';
+    int b = a;
+    cout << (a == 97);
     return 0;
 }
