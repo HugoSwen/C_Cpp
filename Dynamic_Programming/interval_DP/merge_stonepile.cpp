@@ -1,3 +1,7 @@
+/*
+状态f[i][j]：合并区间[i, j]内的石子需要的最小代价
+状态转移方程：f[i][j] = f[i][k] + f[k + 1][j] + sum(i, j),   k = i + 1,···,j - 1
+*/
 #include <iostream>
 using namespace std;
 

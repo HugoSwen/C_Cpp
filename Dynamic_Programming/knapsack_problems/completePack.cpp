@@ -1,6 +1,9 @@
 /*
 朴素版
+状态f[i][j]：从前i个物品中选，且总体积不大于j的选法的最大价值
 状态转移方程：f[i][j] = max(f[i - 1][j], f[i][j - v[i]] + w[i])
+f[i][j] = f[i - 1][j] + f[i - 1][j - v]+w + f[i - 1][j - 2v]+2w + ··· + f[i - 1][j - kv]+kw
+f[i][j - v] =           f[i - 1][j - v]   + f[i - 1][j - 2v]+w  + ··· + f[i - 1][j - kv]+(k-1)w
 */
 #include <iostream>
 using namespace std;

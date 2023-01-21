@@ -1,3 +1,8 @@
+/*
+状态f[i][j]：从前i组中选，且总体积不大于j的选法的最大价值
+状态转移方程：f[i][j] = max(f[i - 1][j], f[i - 1][j - v[i][k]] + w[i][k]) k = 1,2,3,···,s[i]
+优化后：     f[j] = max(f[j], f[j - v[i][k]] + w[i][k])                  k = 1,2,3,···,s[i]
+*/
 #include <iostream>
 using namespace std;
 

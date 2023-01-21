@@ -1,3 +1,7 @@
+/*
+状态f[i][j]：从底部走到a[i][j]的路径数字之和的最大值
+状态转移方程：f[i][j] = max(f[i + 1][j], f[i + 1][j + 1]) + a[i][j]
+*/
 #include <iostream>
 using namespace std;
 
