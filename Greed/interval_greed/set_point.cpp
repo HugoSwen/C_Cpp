@@ -1,3 +1,10 @@
+/*
+贪心得到的可行解：cnt
+1. ans <= cnt
+由于cnt是在所有互相没有交集的区间中各选一个点，由于ans包含的区间有或没有交集
+2. ans >= cnt
+则 ans = cnt
+*/
 #include <iostream>
 #include <algorithm>
 #include <vector>

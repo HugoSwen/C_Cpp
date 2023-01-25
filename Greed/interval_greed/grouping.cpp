@@ -1,3 +1,10 @@
+/*
+贪心得到的可行解：cnt
+1. ans <= cnt
+由于贪心产生的第cnt个组时，该区间与前cnt - 1个组中的最后一个区间共cnt个，两两之间都有交集，因此这cnt个区间不能在同一组
+2. ans >= cnt
+则 ans = cnt
+*/
 #include <iostream>
 #include <algorithm>
 #include <queue>
