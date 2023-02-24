@@ -16,23 +16,7 @@ int main()
         while (j && p[i - 1] != p[j])
             j = ne[j];
         ne[i] = ++j;
-        j = ne[i];
     }
-
-    // int i = 1, j = 1;
-    // while (i <= m)
-    // {
-    //     if (j == 0 || s[i] == p[j])
-    //         i++, j++;
-    //     else
-    //         j = ne[j];
-
-    //     if (j == n + 1)
-    //     {
-    //         cout << i - n - 1 << " ";
-    //         j = ne[j];
-    //     }
-    // }
 
     for (int i = 1, j = 1; i <= m; i++)
     {
