@@ -202,14 +202,12 @@ int bellman_ford()
 
     // 如果第n次迭代仍然会松弛三角不等式，就说明存在一条长度是n+1的最短路径，由抽屉原理，路径中至少存在两个相同的点，说明图中存在负权回路。
     for (int i = 0; i < n; i ++ )
-    {
         for (int j = 0; j < m; j ++ )
         {
             int a = edges[j].a, b = edges[j].b, w = edges[j].w;
             if (dist[b] > dist[a] + w)
                 dist[b] = dist[a] + w;
         }
-    }
 
     if (dist[n] > 0x3f3f3f3f / 2) return -1;
     return dist[n];

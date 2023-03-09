@@ -1,8 +1,8 @@
-#include <iostream>
-using namespace std;
+#include <stdio.h>
 
 int main()
 {
-    cout << (char)1;
-    return 0;
+    int a = 2, b = 4;
+    int c = a + b;
+    printf("%d", c);
 }
