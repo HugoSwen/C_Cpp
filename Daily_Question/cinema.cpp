@@ -3,7 +3,7 @@
 using namespace std;
 
 typedef pair<int, int> PII;
-const int N = 500;
+const int N = 100;
 
 int seat[N][N];
 bool st[N][N];
@@ -16,12 +16,12 @@ int main()
     cin >> n >> m;
     for (int i = 0; i < n; i++)
         for (int j = 0; j < m; j++)
-            scanf("%d", &seat[i][j]);
+            scanf("%1d", &seat[i][j]);
 
     int res = 0;
     for (int i = 0; i < n; i++)
         for (int j = 0; j < m; j++)
-            if (!seat[i][j] && !st[i][j])
+            if (seat[i][j] && !st[i][j])
             {
                 int cnt = 0;
                 q.push({i, j});
@@ -37,7 +37,7 @@ int main()
                     for (int i = 0; i < 4; i++)
                     {
                         int x = a + dx[i], y = b + dy[i];
-                        if (x >= 0 && x < n && y >= 0 && y < m && !seat[x][y] && !st[x][y])
+                        if (x >= 0 && x < n && y >= 0 && y < m && seat[x][y] && !st[x][y])
                         {
                             q.push({x, y});
                             st[x][y] = true;
