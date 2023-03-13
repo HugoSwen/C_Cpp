@@ -21,12 +21,9 @@ ULL get(ULL h[], int l, int r)
 
 int main()
 {
-    for (int i = 1;; i++)
+    int tc = 1;
+    while (cin >> s + 1, strcmp(s + 1, "END"))
     {
-        cin >> s + 1;
-        if (!strcmp(s + 1, "END"))
-            break;
-
         int n = strlen(s + 1);
         for (int i = 2 * n; i > 0; i -= 2)
             s[i] = s[i / 2], s[i - 1] = 'z' + 1; // 每两个字符之间插入一个非字母字符，扩张字符串
@@ -59,7 +56,7 @@ int main()
                 res = max(res, r + 1);
         }
 
-        printf("Case %d: %d\n", i, res);
+        printf("Case %d: %d\n", tc++, res);
     }
 
     return 0;
