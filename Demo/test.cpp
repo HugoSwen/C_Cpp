@@ -1,14 +1,15 @@
-#include <iostream>
-using namespace std;
-
-typedef struct
+bool isEqual(BiTree A, BiTree B)
 {
-    int data;
-    Lnode *p;
-}Lnode, *LinkList;
-
-void init(LinkList &L)
-{
-    L = (Lnode*)malloc(sizeof(Lnode));
-    L -> data = 19;
+    if (A != NULL && B != NULL)
+    {
+        if (A -> data != B -> data)
+        return false;
+    }
+    else if (A == NULL && B == NULL)
+        return true;
+    else
+        return false;
+    
+return isEqual(A -> lchild, B -> lchild) && 
+        isEqual(A -> rchild, B -> rchild);
 }

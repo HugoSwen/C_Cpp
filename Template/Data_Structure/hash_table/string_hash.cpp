@@ -7,7 +7,7 @@ using namespace std;
 
 typedef unsigned long long ULL;
 
-const int N = 1e5 + 10, P = 131;
+const int N = 1e5 + 10, P = 13331;
 
 int n, m;
 char str[N];
