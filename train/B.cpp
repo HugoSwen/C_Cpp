@@ -1,93 +1,34 @@
-#include <bits/stdc++.h>
-#define dbg() cout<<"-------"
+#include <bits\stdc++.h>
 using namespace std;
-const int N = 1e6 + 10;
 typedef long long ll;
-typedef unsigned long long ull;
-typedef pair<int, int> PII;
-const int p = 998244353;
-int n, a[N];
-ll ans;
-int backup[N];
 
-void merge_sort(int l, int r)
+const int N = 2e3 + 10;
+int n, ans;
+ll x[N], y[N];
+
+ll chaji(ll x1, ll y1, ll x2, ll y2)
 {
-    if (l == r) return;
+    return x1 * y2 - x2 * y1;
+}
+
+int main()
+{
+    scanf("%d", &n);
+    for (int i = 0; i < n; i++)
+        scanf("%lld%lld", &x[i], &y[i]);
     
-    int mid = l + r >> 1, i = l, j = mid + 1;
-    merge_sort(l, j - 1), merge_sort(j, r);
-    
-    int k = 0;
-    while (i <= mid && j <= r)
+    for (int i = 0, r = 1; i < n; i++)
     {
-        if (a[i] <= a[j])
-            backup[k++] = a[i++];
-        else
+        while (y[i] == y[r])
+            r = (r + 1) % n;
+        int l = (i + n - 1) % n;
+        if (y[i] < y[l] && y[i] < y[r])
         {
-            ans += mid - i + 1;
-            backup[k++] = a[j++];
+            r = (i + 1) % n;
+            if (chaji(x[i] - x[l], y[i] - y[l], x[r] - x[i], y[r] - y[i]) > 0)
+                ans++;
         }
     }
-    
-    while (i <= mid)
-        backup[k++] = a[i++];
-    while (j <= r)
-        backup[k++] = a[j++];
-    
-    for (i = l; i <= r; i++) a[i] = backup[i - l];
-}
-
-void solve() {
-    ans = 0;
-    cin >> n;
-    for (int i = 1; i <= n; i++) cin >> a[i];
-    merge_sort(1, n);
-    if (ans & 1) {
-        cout << 2 << ' ';
-        ll temp = (ll)n * (n - 1) / 2 - ans;
-        if (temp & 1) {
-            ll temp2 = 2 ^ n;
-            temp2 >>= 1;
-            temp2 <<= 1;
-            temp2++;
-            cout << temp2 << endl;
-        }
-        else {
-            ll temp2 = n;
-            temp2 >>= 1;
-            temp2 <<= 1;
-            temp2++;
-            cout << temp2 << endl;
-        }
-    }
-    else {
-        cout << 0 << ' ';
-        ll temp = (ll)n * (n - 1) / 2 - ans;
-        if (temp & 1) {
-            ll temp2 = 2 ^ n;
-            temp2 >>= 1;
-            temp2 <<= 1;
-            temp2++;
-            cout << temp2 << endl;
-        }
-        else {
-            ll temp2 = n;
-            temp2 >>= 1;
-            temp2 <<= 1;
-            temp2++;
-            cout << temp2 << endl;
-        }
-    }
-
-}
-int main(int argc, char* argv[]) {
-    ios_base::sync_with_stdio(false); cin.tie(nullptr);
-    int t;
-    cin >> t;
-    //  t = 1;
-    while (t--) {
-        solve();
-    }
+    cout << ans << endl;
     return 0;
 }
-
