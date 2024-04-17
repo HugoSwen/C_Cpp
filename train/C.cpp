@@ -1,54 +1,58 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-const int N = 1e6 + 10;
-typedef long long ll;
-int a[N], n, sum;
+const int N = 10005;
+int n;
+double ans = 1e20;
 
-void solve()
+struct Point
 {
-    scanf("%d", &n);
-    sum = 0;
-    for (int i = 1; i <= n; i++)
-        scanf("%d", &a[i]);
+    double x, y;
+    Point() {}
+    Point(double x, double y) : x(x), y(y) {}
+    void read() { scanf("%lf%lf", &x, &y); }
+    double get_dis(const Point &b) { return sqrt((x - b.x) * (x - b.x) + (y - b.y) * (y - b.y)); }
+};
 
-    int cnt = 1, attack = 1;
-    for (int i = 1; i <= n; i++)
+struct cmp_x
+{
+    bool operator()(const Point &a, const Point &b) const
     {
-        if (a[i] == 1)
-            cnt++, attack++;
-        else if (a[i] == -1)
-        {
-            if (cnt > 1)
-                cnt--;
-            else if (sum >= 1)
-                sum--, attack++, cnt++;
-            else
-            {
-                printf("-1\n");
-                return;
-            }
-        }
-        else
-        {
-            if (cnt > 1)
-                cnt--, sum++;
-            else
-                cnt++, attack++;
-        }
+        return a.x < b.x || (a.x == b.x && a.y < b.y);
     }
+};
 
-    printf("%d %d\n", attack / __gcd(attack, cnt), cnt / __gcd(attack, cnt));
+struct cmp_y
+{
+    bool operator()(const Point &a, const Point &b) const { return a.y < b.y; }
+};
+
+void upd_ans(Point a, Point b)
+{
+    double dist = a.get_dis(b);
+    if (ans > dist)
+        ans = dist;
 }
+
+Point a[N];
+multiset<Point, cmp_y> s;
 
 int main()
 {
-    int T;
-    scanf("%d", &T);
+    scanf("%d", &n);
+    for (int i = 0; i < n; i++)
+        a[i].read();
+    sort(a, a + n, cmp_x());
 
-    while (T--)
+    for (int i = 0, l = 0; i < n; i++)
     {
-        solve();
+        while (l < i && a[i].x - a[l].x >= ans)
+            s.erase(s.find(a[l++]));
+        for (auto it = s.lower_bound(Point(a[i].x, a[i].y - ans));
+             it != s.end() && it->y - a[i].y < ans; it++)
+            upd_ans(*it, a[i]);
+        s.insert(a[i]);
     }
+    printf("%.4lf", ans);
     return 0;
 }
